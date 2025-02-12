@@ -1,0 +1,11 @@
+id_producto,nombre_producto,categoria
+1,Laptop,Computación
+2,Smartphone,Electrónica
+3,Tablet,Electrónica
+4,Auriculares,Accesorios
+5,Monitor,Computación
+6,Teclado,Accesorios
+7,Mouse,Accesorios
+8,Impresora,Computación
+9,Cámara,Electrónica
+10,Reloj inteligente,Electrónica
