@@ -1,0 +1,19 @@
+import csv
+import os
+
+def main():
+    read_csv('ventas.csv')
+
+
+
+def read_csv(name_document):
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(current_directory, 'Archivos', name_document)
+    print(path)
+    with open(path, mode='r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            print(row)
+
+if __name__ == "__main__":
+    main()
