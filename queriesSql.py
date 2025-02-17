@@ -22,6 +22,9 @@ def main():
             '''  
     ask1=["¿Cuál fue la sucursal con más ventas totales (suma del precio total) durante el último mes?",consulta1]  
     answer1=ask(cursor,ask1)
+    print(ask1[0])
+    print(f"la sucursal {answer1[0][1]} con unas ventas {answer1[0][2]} es la de mayor ventas del último mes")    
+    
     consulta2='''
         SELECT p.nombre_producto, COUNT(*) AS veces
         FROM ventas v
@@ -31,15 +34,31 @@ def main():
         LIMIT 5;
             '''  
     ask2=["¿Cuáles fueron los 5 productos más vendidos por categoría?",consulta2]  
-    answer2=ask(cursor,ask2)
-    print(answer2)
-    #print(f"La sucursal con mas vetas totales fue {answer1[0][1]} con un total de ventas de {answer1[0][2]}")
-    print(f"Los 5 productos mas vendidos son {answer2}")
-    
+    answer2=ask(cursor,ask2)    
+    print(ask2[0])    
+    print(f"Los 5 productos mas vendidos son:")
+    for values in answer2:
+        unidad_plural = "unidad" if values[1] == 1 else "unidades"
+        print(f"producto {values[0]} {unidad_plural} {values[1]}")
+
+    consulta3='''
+        SELECT s.nombre_sucursal,v.fecha,v.precio_total
+        FROM ventas v
+        JOIN sucursales s ON v.id_sucursal = s.id_sucursal
+        GROUP BY v.fecha,v.id_sucursal
+        ORDER BY v.fecha,v.precio_total DESC
+            '''  
+    ask3=["Calcula las ventas totales por día, agrupadas por sucursal.",consulta3]  
+    print(ask3[0])
+    answer3=ask(cursor,ask3)
+    print("Las ventas totales por día son:")
+    for value in answer3:
+        print(f"{value[1]} {value[0]} total: {value[2]}")
+
     conexion.close()
  
-def ask(cursor, ask1):
-    cursor.execute(ask1[1])
+def ask(cursor, ask):
+    cursor.execute(ask[1])
     filas = cursor.fetchall()
     filas_array = [list(fila) for fila in filas]
     return filas_array
