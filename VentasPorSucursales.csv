@@ -1,0 +1,13 @@
+id_sucursal,nombre_sucursal,fecha,ventas totales
+5,Sucursal oeste,2023-10-03,227.5
+4,Sucursal este,2023-10-03,103.96
+1,Sucursal centro,2023-10-04,750.0
+2,Sucursal norte,2023-10-04,120.0
+4,Sucursal este,2023-10-05,700.0
+3,Sucursal sur,2023-10-05,150.75
+2,Sucursal norte,2023-10-06,2399.96
+5,Sucursal oeste,2023-10-06,500.0
+3,Sucursal sur,2023-10-07,1200.5
+1,Sucursal centro,2023-10-07,136.5
+4,Sucursal este,2023-10-08,600.0
+2,Sucursal norte,2023-10-08,129.95
